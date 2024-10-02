@@ -14,7 +14,7 @@ Realizar una aplicación que obtenga apuestas seguras de distintas casas de apue
 
 # Documentación 
 
-- [¿Qué es una arbitrage bet](docs/arbitrage_bet.md)
+- [¿Qué es una arbitrage bet?](docs/arbitrage_bet.md)
 
 - [Personas](docs/user-jorneys.md.md)
 
