@@ -11,3 +11,13 @@ Puesto que estas disparidades no duran gran cantidad de tiempo es necesario reci
 # Propuesta de solución
 
 Realizar una aplicación que obtenga apuestas seguras de distintas casas de apuestas y que notifique mediante Telegram/Twitter a traves de un bot.
+
+# Documentación 
+
+- [¿Qué es una arbitrage bet?](docs/arbitrage_bet.md)
+
+- [Personas](docs/user-jorneys.md.md)
+
+- [Historias de usuario](docs/user-stories.md)
+
+- [Milestones](docs/milestones.md)
