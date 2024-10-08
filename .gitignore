@@ -1,0 +1,23 @@
+# Logs
+logs/
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+
+# Archivos de compilación y binarios
+dist/
+build/
+*.o
+*.out
+*.exe
+
+# Archivos de paquetes y dependencias
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.tgz
