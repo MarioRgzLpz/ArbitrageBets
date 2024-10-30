@@ -1,4 +1,4 @@
-use crate::{cuota::Cuota, evento::{self, EventoDeportivo}};
+use crate::{cuota::Cuota, evento::EventoDeportivo};
 
 pub struct ApuestaSegura {
     evento: EventoDeportivo,
