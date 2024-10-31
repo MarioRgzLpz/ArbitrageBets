@@ -1,11 +1,13 @@
+use crate::evento::Resultados;
+
 pub struct Cuota {
-    resultado: String,
+    resultado: Resultados,
     valor: f64
 }
 
 impl Cuota {
 
-    pub fn new(resultado: String, valor: f64) -> Self {
+    pub fn new(resultado: Resultados, valor: f64) -> Self {
 
         Cuota {
             resultado,
@@ -13,7 +15,7 @@ impl Cuota {
         }
     }
 
-    pub fn get_resultado(&self) -> &String{
+    pub fn get_resultado(&self) -> &Resultados{
         &self.resultado
     }
 }
