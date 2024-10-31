@@ -1,8 +1,9 @@
 use std::collections::HashMap;
 use crate::{cuota::Cuota, evento::EventoDeportivo};
+
 pub struct CasaDeApuestas {
     nombre: String,
-    cuotas: HashMap<EventoDeportivo, Vec<Cuota>>
+    cuotas: HashMap<String, Vec<Cuota>>
 }
 
 impl CasaDeApuestas {
@@ -16,13 +17,20 @@ impl CasaDeApuestas {
 
     pub fn agregar_evento(&mut self, evento: EventoDeportivo, cuotas: Vec<Cuota>) -> Result<(),String> {
 
+        if cuotas.len() != 3 {
+            return Err(format!("A un evento solo se pueden asociar tres cuotas"));
+        }
+
+        let mut resultados_set = std::collections::HashSet::new();
         for cuota in &cuotas {
-            if !evento.get_resultados().contains(&cuota.get_resultado()) {
-                return Err(format!("Resultado no válido '{}' en la cuota.", cuota.get_resultado()));
+            if !resultados_set.insert(cuota.get_resultado()) {
+                return Err(format!("No se puede asociar el resultado {:?} más de una vez", cuota.get_resultado()));
             }
         }
 
-        self.cuotas.insert(evento, cuotas);
+        let nombre_evento = evento.get_nombre().clone();
+
+        self.cuotas.insert(nombre_evento, cuotas);
         Ok(())
     }
 }
