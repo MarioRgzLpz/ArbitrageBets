@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 use crate::{cuota::Cuota, evento::EventoDeportivo};
 
+/// La clave de `cuotas` es un String representando el nombre de la casa de apuestas, y el String de `evento` representa el nombre del evento
 pub struct ApuestaSegura {
     evento: String,
-    /// La clave de `cuotas` es un String representando el nombre de la casa de apuestas que ofrece dicha cuota
     cuotas: HashMap<String, Cuota>
 }
 
