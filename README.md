@@ -21,3 +21,14 @@ Realizar una aplicación que obtenga apuestas seguras de distintas casas de apue
 - [Historias de usuario](docs/user-stories.md)
 
 - [Milestones](docs/milestones.md)
+
+
+# Herramientas utilizadas
+
+- Lenguaje de programación: `Rust`
+
+- Gestor de dependencias: Cargo. [Más información](docs/gestor-dependencias.md)
+
+- Gestor de tareas: cargo-make. [Más información](docs/gestor-tareas.md)
+    - Si no esta instalado su instalación es muy simple y basta con ejecutar el siguiente comando:
+    `cargo install cargo-make`
