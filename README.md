@@ -27,8 +27,9 @@ Realizar una aplicación que obtenga apuestas seguras de distintas casas de apue
 
 - Lenguaje de programación: `Rust`
 
-- Gestor de dependencias: Cargo. [Más información](docs/gestor-dependencias.md)
+- Gestor de dependencias: `Cargo`. [Más información](docs/gestor-dependencias.md)
 
-- Gestor de tareas: cargo-make. [Más información](docs/gestor-tareas.md)
+- Gestor de tareas: `cargo-make`. [Más información](docs/gestor-tareas.md)
     - Si no esta instalado su instalación es muy simple y basta con ejecutar el siguiente comando:
     `cargo install cargo-make`
+    - Para formatear el codigo y corregir la sintaxis realizamos: `cargo make check`
