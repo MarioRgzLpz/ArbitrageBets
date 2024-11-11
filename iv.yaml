@@ -2,4 +2,4 @@ lenguaje: rust
 entidad: src/casa_de_apuestas.rs
 automatizar: 
     fichero: Makefile.toml
-    orden: cargo make full
+    orden: cargo make
