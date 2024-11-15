@@ -1,12 +1,11 @@
 [tasks.check]
+command = "cargo"
+args = ["check"]
+
+[tasks.format]
 install_crate = "rustfmt"
 command = "cargo"
 args = ["fmt"]
-
-[tasks.check-change]
-install_crate = "rustfmt"
-command = "cargo"
-args = ["fmt", "--", "--emit=files"]
 
 [tasks.clean]
 command = "cargo"
@@ -21,7 +20,7 @@ command = "cargo"
 args = ["build", "--release"]
 
 [tasks.full]
-dependencies = ["check-change", "build", "test"]
+dependencies = ["format", "build", "test"]
 
 [tasks.clean-full]
 dependencies = ["clean", "full"]
