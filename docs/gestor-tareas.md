@@ -2,7 +2,7 @@ Para elegir el gestor de tareas vamos a seguir los criterios nombrados en [elecc
 
 - **Complejidad**: Debemos tener en cuenta para que vamos a usar la herramienta y no escoger una muy compleja y con demasiadas funcionalidades que no vamos a necesitar. .
 - **Compatibilidad con el resto de herramientas**: La herramienta debe ser compatible con el resto de herramientas a usar.
-- **Deuda técnica**: Es importante que el gestor de tareas tenga un desarrollo estable y bien mantenido. Evitar herramientas con alta deuda técnica garantiza que no enfrentes problemas de rendimiento, seguridad o falta de actualizaciones en el futuro.
+- **Mantenimiento**: Es importante que el gestor de tareas tenga un desarrollo estable y bien mantenido. Evitar herramientas descontinuadas o poco mantenidas garantiza que no enfrentes problemas de rendimiento, seguridad o falta de actualizaciones en el futuro.
 - **Integración con el ecosistema Rust**: La herramienta a elegir debe integrarse correctamente con el lenguaje de Rust.
 
 Para automatizar tareas en Rust, hay varias opciones que pueden ayudar a gestionar el flujo de trabajo, ya sea para compilar, probar, formatear, generar documentación, o realizar tareas personalizadas. Aquí presento algunas de las opciones más usadas y también las que se recomiendan en la documentación de Rust:
