@@ -21,3 +21,20 @@ Realizar una aplicación que obtenga apuestas seguras de distintas casas de apue
 - [Historias de usuario](docs/user-stories.md)
 
 - [Milestones](docs/milestones.md)
+
+
+# Herramientas utilizadas
+
+- Lenguaje de programación: `Rust`
+
+- Gestor de dependencias: `Cargo`. [Más información](docs/gestor-dependencias.md)
+
+- Gestor de tareas: `cargo-make`. [Más información](docs/gestor-tareas.md)
+    - Si no esta instalado su instalación es muy simple y basta con ejecutar el siguiente comando:
+    `cargo install cargo-make`
+    - Para formatear el codigo y corregir la sintaxis realizamos: `cargo make check`
+    - Para limpiar los archivos de compilación realizamos: `cargo make clean`
+    - Para correr los tests realizamos: `cargo make test`
+    - Para compilar el proyecto realizamos: `cargo make build`
+    - Con `cargo make full` corregimos sintaxis, compilamos y corremos tests.
+    - Con `cargo make clean-full` realizamos todo lo anterior pero primero limpiamos los archivos de compilación.
