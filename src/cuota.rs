@@ -2,20 +2,15 @@ use crate::evento::Resultados;
 
 pub struct Cuota {
     resultado: Resultados,
-    valor: f64
+    valor: f64,
 }
 
 impl Cuota {
-
     pub fn new(resultado: Resultados, valor: f64) -> Self {
-
-        Cuota {
-            resultado,
-            valor
-        }
+        Cuota { resultado, valor }
     }
 
-    pub fn get_resultado(&self) -> &Resultados{
+    pub fn get_resultado(&self) -> &Resultados {
         &self.resultado
     }
 }

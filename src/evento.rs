@@ -1,8 +1,8 @@
 #[derive(Debug, Eq, PartialEq, Hash)]
 pub enum Resultados {
     GanaLocal,
-    Empate, 
-    GanaVisitante
+    Empate,
+    GanaVisitante,
 }
 
 #[derive(Debug, Eq, PartialEq, Hash)]
@@ -12,12 +12,14 @@ pub struct EventoDeportivo {
 }
 
 impl EventoDeportivo {
-
     pub fn new(nombre: String) -> Self {
-
         EventoDeportivo {
             nombre,
-            resultados: vec![Resultados::GanaLocal, Resultados::Empate, Resultados::GanaVisitante]
+            resultados: vec![
+                Resultados::GanaLocal,
+                Resultados::Empate,
+                Resultados::GanaVisitante,
+            ],
         }
     }
 
