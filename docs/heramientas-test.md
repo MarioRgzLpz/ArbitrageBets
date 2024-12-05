@@ -28,9 +28,12 @@ Puesto que no vamos a hacer cosas tan complejas y el proyecto no va a ser tan gr
 
 Para elegir nuestro test runner o framework debemos tener en cuenta los criterios ya nombrados en [#19](https://github.com/MarioRgzLpz/ArbitrageBets/issues/19) y algunas adicionales como son:
 
-- Buen mockeo (para simular objetos y posibles casos a testear).
-- Agrupación de tests.
-- Rendimiento de los tests.
+- Buen mockeo: que permita simular objetos y posibles casos a testear.
+- Capacidad de depuración: Opciones integradas para pausar y analizar el estado del programa durante la ejecución de tests.
+- Agrupación de tests: Que permita organizar los tests en grupos y subgrupos lógicos.
+- Escalabilidad: Que se permita configurar escenarios más complejos si el proyecto crece.
+- Rendimiento de los tests: Que permita paralelismo o concurrencia.
+- Reporte detallado de errores: Mensajes claros que indican exactamente qué falló y por qué.
 
 ### Estándar
 
@@ -42,7 +45,7 @@ Rust trae por defecto soporte para la implementacion de unit testing, simplement
 
 ### Nextest
 
-Nextest es una herramienta para reemplazar a `cargo test` (tiene las mismas funcionalidades y añade algunas más). Tiene algunas cosas adicionales para correr test en CI pero la principal ventaja es que es hasta 3 veces más rapido. Se puede usar con `cargo nextest`. Algunas de las ventajas son:
+Nextest es una herramienta para reemplazar a `cargo test` (tiene las mismas funcionalidades y añade algunas más). Tiene algunas cosas adicionales para correr test en CI pero la principal ventaja es que es hasta **3 veces más rapido**. Se puede usar con `cargo nextest`. Algunas de las ventajas son:
 
 - **Interfaz limpia y eficiente**:  Resultados presentados de forma concisa, destacando qué pruebas pasaron y cuáles fallaron.
 - **Detección de problemas en pruebas**:  
@@ -82,7 +85,7 @@ Es un framework de testing que se centra en probar que ciertas propiedades de tu
 
 ### Elección de test runner
 
-Finalmente por la estructura y futuro del proyecto he decidido usar `nextest` que tiene una implementación muy sencilla y integración con el estandar, releases recientes y amplia las funciones que se pueden hacer con `cargo test` sin aumentar en gran medida la deuda técnica ni la dificultad, además de las ventajas nombradas anteriormente.
+Finalmente por la estructura y futuro del proyecto he decidido usar `nextest` que tiene una implementación muy sencilla y integración con el estándar, releases recientes y amplia las funciones que se pueden hacer con `cargo test` sin aumentar en gran medida la deuda técnica ni la dificultad, además de las ventajas nombradas anteriormente. Tanto `rstest` como `proptest` tienen una curva de aprendizaje más alta y no son tan sencillos de implementar como el estándar.
 ## Herramientas CLI
 
 En este caso lo normal para compilar y ejecutar los test es usar el estándar que encontramos en el lenguaje que para Rust es `cargo test`, pero como quiero incorporar el uso de `nextest` simplemente la suborden a ejecutar ahora es `cargo nextest` que realiza lo mismo y como herramienta de CLI no supone una ventaja pero es necesario para usar nextest como nuestro test runner que si que incrementa el rendimiento.
