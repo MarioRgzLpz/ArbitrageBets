@@ -1,4 +1,4 @@
-#[derive(Debug, Eq, PartialEq, Hash)]
+#[derive(Debug, Eq, PartialEq, Hash, Clone)]
 pub enum Resultados {
     GanaLocal,
     Empate,
