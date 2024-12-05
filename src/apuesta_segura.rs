@@ -54,7 +54,7 @@ mod tests {
     #[test]
     fn test_es_apuesta_segura() {
         let mut mejores_cuotas = HashMap::new();
-        mejores_cuotas.insert(Resultados::GanaLocal, ("Casa1".to_string(), 2.2));
+        mejores_cuotas.insert(Resultados::GanaLocal, ("Casa1".to_string(), 3.2));
         mejores_cuotas.insert(Resultados::Empate, ("Casa2".to_string(), 3.5));
         mejores_cuotas.insert(Resultados::GanaVisitante, ("Casa1".to_string(), 3.0));
 
@@ -67,7 +67,7 @@ mod tests {
     #[test]
     fn test_calcular_apuestas_seguras() {
         let cuotas_casa1 = vec![
-            Cuota::new(Resultados::GanaLocal, 2.1),
+            Cuota::new(Resultados::GanaLocal, 3.1),
             Cuota::new(Resultados::Empate, 3.5),
             Cuota::new(Resultados::GanaVisitante, 3.0),
         ];
