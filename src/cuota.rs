@@ -14,4 +14,8 @@ impl Cuota {
     pub fn get_resultado(&self) -> &Resultados {
         &self.resultado
     }
+
+    pub fn get_valor(&self) -> f64 {
+        self.valor
+    }
 }
