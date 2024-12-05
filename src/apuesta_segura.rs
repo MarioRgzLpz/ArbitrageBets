@@ -11,6 +11,66 @@ impl ApuestaSegura {
     pub fn new(evento: String, cuotas: HashMap<String, Cuota>) -> Self {
         ApuestaSegura { evento, cuotas }
     }
+    fn obtener_mejores_cuotas(
+        evento: &str,
+        casas: &[CasaDeApuestas],
+    ) -> HashMap<Resultados, (String, f64)> {
+        let mut mejores_cuotas: HashMap<Resultados, (String, f64)> = HashMap::new();
+
+        for casa in casas {
+            if let Some(cuotas_evento) = casa.get_cuotas().get(evento) {
+                for cuota in cuotas_evento {
+                    let resultado = cuota.get_resultado();
+                    let valor = cuota.get_valor();
+
+                    // Actualizar si es la mejor cuota encontrada hasta ahora
+                    if let Some((_, mejor_valor)) = mejores_cuotas.get(resultado) {
+                        if valor > *mejor_valor {
+                            mejores_cuotas
+                                .insert(resultado.clone(), (casa.get_nombre().clone(), valor));
+                        }
+                    } else {
+                        mejores_cuotas
+                            .insert(resultado.clone(), (casa.get_nombre().clone(), valor));
+                    }
+                }
+            }
+        }
+
+        mejores_cuotas
+    }
+
+    /// Verifica si las mejores cuotas forman una apuesta segura.
+    fn es_apuesta_segura(mejores_cuotas: &HashMap<Resultados, (String, f64)>) -> bool {
+        let valores_cuotas: Vec<f64> = mejores_cuotas.values().map(|(_, valor)| *valor).collect();
+        let inversas: Vec<f64> = valores_cuotas.iter().map(|valor| 1.0 / valor).collect();
+        let suma_inversa: f64 = inversas.iter().sum();
+        suma_inversa < 1.0
+    }
+
+    /// Calcula una apuesta segura para un evento si es posible.
+    pub fn calcular_apuestas_seguras(
+        evento: &str,
+        casas: Vec<CasaDeApuestas>,
+    ) -> Option<ApuestaSegura> {
+        // Paso 1: Obtener las mejores cuotas
+        let mejores_cuotas = Self::obtener_mejores_cuotas(evento, &casas);
+
+        // Paso 2: Verificar si es una apuesta segura
+        if Self::es_apuesta_segura(&mejores_cuotas) {
+            // Construir la estructura ApuestaSegura
+            let cuotas: HashMap<String, Cuota> = mejores_cuotas
+                .into_iter()
+                .map(|(resultado, (casa, valor))| {
+                    (casa.clone(), Cuota::new(resultado.clone(), valor))
+                })
+                .collect();
+
+            Some(ApuestaSegura::new(evento.to_string(), cuotas))
+        } else {
+            None
+        }
+    }
 }
 
 #[cfg(test)]
