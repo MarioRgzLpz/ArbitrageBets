@@ -1,5 +1,6 @@
 use crate::evento::Resultados;
 
+#[derive(Debug, Clone)]
 pub struct Cuota {
     resultado: Resultados,
     valor: f64,
