@@ -83,9 +83,26 @@ Es un framework de testing que se centra en probar que ciertas propiedades de tu
 - **Detección de errores ocultos**: Ayuda a encontrar errores sutiles que pueden no ser obvios en pruebas manuales tradicionales.
 
 
+## Maelstrom
+Maelstrom es un test runner de código abierto para `Rust`, `Go` o `Python` que encapsula pruebas en microcontenedores herméticos, ejecutándolos localmente o distribuyéndolos en clústeres. Las principales ventajas incluyen:
+
+- **Facilidad de uso**: Se puede usar como reemplazo directo de `cargo test` funcionando con las pruebas existentes con mínima configuración.
+- **Aislamiento total**: Ejecuta cada prueba en su propio contenedor ligero, eliminando errores causados por dependencias implícitas o entre pruebas.
+- **Escalabilidad**: Puede ejecutarse como un clúster; añadir más máquinas incrementa proporcionalmente el rendimiento.
+
+---
+
+## cargo-qtest
+Un test runner interactivo que mejora la experiencia de pruebas en Rust al permitir selección flexible y ejecución de pruebas con patrones personalizados. Sus ventajas incluyen:
+
+- **Interfaz interactiva**: Facilita la búsqueda y selección de pruebas basándose en patrones de nombres o rutas específicas.
+- **Flexibilidad en la ejecución**: Permite ejecutar pruebas de distintos módulos simultáneamente, ideal para proyectos grandes.
+- **Compatibilidad completa**: Funciona como una extensión de `cargo test`, soportando todos sus argumentos y flags.
+- **Optimización del flujo de trabajo**: Simplifica la ejecución de pruebas específicas sin necesidad de recordar rutas complejas o comandos largos.
+
 ### Elección de test runner
 
-Finalmente por la estructura y futuro del proyecto he decidido usar `nextest` que tiene una implementación muy sencilla y integración con el estándar, releases recientes y amplia las funciones que se pueden hacer con `cargo test` sin aumentar en gran medida la deuda técnica ni la dificultad, además de las ventajas nombradas anteriormente. Tanto `rstest` como `proptest` tienen una curva de aprendizaje más alta y no son tan sencillos de implementar como el estándar.
+Finalmente por la estructura y futuro del proyecto he decidido usar `nextest` que tiene una implementación muy sencilla y integración con el estándar, releases recientes y amplia las funciones que se pueden hacer con `cargo test` sin aumentar en gran medida la deuda técnica ni la dificultad y muy querido en la comunidad, además de las ventajas nombradas anteriormente. Tanto `rstest` como `proptest` tienen una curva de aprendizaje más alta y no son tan sencillos de implementar como el estándar, `cargo-qtest` no amplia mucho la funcionalidad de cargo test y `maelstrom` no es tan especifico para Rust además de ser bastante reciente y no tener tanto soporte. 
 ## Herramientas CLI
 
 En este caso lo normal para compilar y ejecutar los test es usar el estándar que encontramos en el lenguaje que para Rust es `cargo test`, pero como quiero incorporar el uso de `nextest` simplemente la suborden a ejecutar ahora es `cargo nextest` que realiza lo mismo y como herramienta de CLI no supone una ventaja pero es necesario para usar nextest como nuestro test runner que si que incrementa el rendimiento.
