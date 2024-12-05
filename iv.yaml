@@ -3,3 +3,4 @@ entidad: src/casa_de_apuestas.rs
 automatizar: 
     fichero: Makefile.toml
     orden: cargo make
+    test: src/casa_de_apuestas.rs
