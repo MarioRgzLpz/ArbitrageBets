@@ -23,7 +23,6 @@ impl ApuestaSegura {
                     let resultado = cuota.get_resultado();
                     let valor = cuota.get_valor();
 
-                    // Actualizar si es la mejor cuota encontrada hasta ahora
                     if let Some((_, mejor_valor)) = mejores_cuotas.get(resultado) {
                         if valor > *mejor_valor {
                             mejores_cuotas
@@ -40,7 +39,6 @@ impl ApuestaSegura {
         mejores_cuotas
     }
 
-    /// Verifica si las mejores cuotas forman una apuesta segura.
     fn es_apuesta_segura(mejores_cuotas: &HashMap<Resultados, (String, f64)>) -> bool {
         let valores_cuotas: Vec<f64> = mejores_cuotas.values().map(|(_, valor)| *valor).collect();
         let inversas: Vec<f64> = valores_cuotas.iter().map(|valor| 1.0 / valor).collect();
@@ -48,17 +46,14 @@ impl ApuestaSegura {
         suma_inversa < 1.0
     }
 
-    /// Calcula una apuesta segura para un evento si es posible.
     pub fn calcular_apuestas_seguras(
         evento: &str,
         casas: Vec<CasaDeApuestas>,
     ) -> Option<ApuestaSegura> {
-        // Paso 1: Obtener las mejores cuotas
+
         let mejores_cuotas = Self::obtener_mejores_cuotas(evento, &casas);
 
-        // Paso 2: Verificar si es una apuesta segura
         if Self::es_apuesta_segura(&mejores_cuotas) {
-            // Construir la estructura ApuestaSegura
             let cuotas: HashMap<String, Cuota> = mejores_cuotas
                 .into_iter()
                 .map(|(resultado, (casa, valor))| {
