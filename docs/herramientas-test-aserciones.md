@@ -8,19 +8,11 @@ A la hora de elegir herramientas de testing debemos tener en cuenta el nivel de 
 
 Para elegir la libreria de aserciones lo más importante será que tenga una buena integración con el ecosistema de Rust, que sea flexible 
 
-En Rust encontramos tres tipos de aserciones estandar que a su vez se pueden comportar de dos formas distintas en función de si contienen el prefijo debug o no, útil para evitar que algunas aserciones se comprueben cuando se usa el modo realease. Las distintas aserciones son `assert!`, `assert_eq!`, `assert_ne!` y las versiones con debug. Estas
-| Tipo               | Habilitado en Debug | Habilitado en Release | Propósito principal                                    |
-|--------------------|---------------------|-----------------------|------------------------------------------------------|
-| `assert!`          | Sí                 | Sí                   | Verificar siempre condiciones críticas.             |
-| `assert_eq!`       | Sí                 | Sí                   | Verificar igualdad de valores siempre.              |
-| `assert_ne!`       | Sí                 | Sí                   | Verificar desigualdad de valores siempre.           |
-| `debug_assert!`    | Sí                 | No                   | Verificar durante desarrollo sin afectar producción.|
-| `debug_assert_eq!` | Sí                 | No                   | Verificar igualdad en modo debug.                   |
-| `debug_assert_ne!` | Sí                 | No                   | Verificar desigualdad en modo debug.                |
+En Rust encontramos tres tipos de aserciones estandar que a su vez se pueden comportar de dos formas distintas en función de si contienen el prefijo debug o no, útil para evitar que algunas aserciones se comprueben cuando se usa el modo realease. Las distintas aserciones son `assert!`, `assert_eq!`, `assert_ne!` y las versiones con debug. Estas permiten todo lo necesario para realizar aserciones en Rust tanto simples como complejas.
 
 También podemos encontrar algunas macros en la libreria estandar(previamente era un crate) que amplian aserciones como `assert_matches!(valor,patron)` que verifica si una expresion coincide con el patrón proporcionado. Es similar a usar `assert!(matches!(valor, patrón))` pero permite imprimir en depuración el valor que hizó que fallará. Tiene un [issue](https://github.com/rust-lang/rust/issues/82775) abierto en la que se explica que tiene un comportamiento inestable en algunos casos.
 
-También encontramos librerias externas(crates) para aumentar los posibles casos de aserciones y dar mensajes más precisos sobre los posibles errores:
+Encontramos también librerias externas(crates) para aumentar los posibles casos de aserciones y dar mensajes más precisos sobre los posibles errores:
 - `static_assertions`: Permite tener aserciones en tiempo de compilación y parar la compilación si es que falla. Centrado en aserciones invariantes como pueden ser constantes y tipos. Se añade como una dependencia y añade distintas macros a assert como `const_assert!` que permite comprobar que una expresion constante sea verdadera. 
 - `assertor`: Es una libreria de aserciones Fluent que permite hacer las aserciones de los tests y los mensajes de error mas legíbles. Cuenta con poca comunidad y 
 
