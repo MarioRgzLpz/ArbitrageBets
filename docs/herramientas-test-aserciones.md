@@ -14,7 +14,7 @@ También podemos encontrar algunas macros en la libreria estandar(previamente er
 
 Encontramos también librerias externas(crates) para aumentar los posibles casos de aserciones y dar mensajes más precisos sobre los posibles errores:
 - `static_assertions`: Permite tener aserciones en tiempo de compilación y parar la compilación si es que falla. Centrado en aserciones invariantes como pueden ser constantes y tipos. Se añade como una dependencia y añade distintas macros a assert como `const_assert!` que permite comprobar que una expresion constante sea verdadera. 
-- `assertor`: Es una libreria de aserciones Fluent que permite hacer las aserciones de los tests y los mensajes de error mas legíbles. Cuenta con poca comunidad y 
+- `assertor`: Es una libreria de aserciones Fluent que permite hacer las aserciones de los tests y los mensajes de error mas legíbles. Cuenta con poca comunidad y poco soporte (3 releases en 3 años).
 
 ### Elección de aserciones
 
