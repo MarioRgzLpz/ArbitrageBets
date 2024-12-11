@@ -28,7 +28,7 @@ Test framework diseñada principalmente para test fixtures. Ayuda a escribir pru
 
 
 ### Proptest
-Es un framework de testing que se centra en probar que ciertas propiedades de tu código se cumplen para entradas arbitrarias y, si se encuentra un error, automáticamente encuentra el caso de prueba mínimo para reproducir el problema. Es una opción interesante pero esta pensado para realizar testing a proyectos donde tengamos grandes cantidades de entradas para las funciones, lo que no es mi caso y además el rendimiento disminuye con respecto al estándar o `nextest`.
+Es un framework de testing que genera automaticamente casos de prueba para un test y si encuentra un fallo, genera el caso mínimo de test (para encontrar casos complejos que causan fallos). Es una opción interesante pero esta pensado para realizar testing a proyectos donde tengamos grandes cantidades de entradas para las funciones, lo que no es mi caso y además el rendimiento disminuye con respecto al estándar o `nextest`.
 
 
 ### Maelstrom
