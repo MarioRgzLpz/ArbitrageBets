@@ -31,10 +31,6 @@ Test framework diseñada principalmente para test fixtures. Ayuda a escribir pru
 Es un framework de testing que genera automaticamente casos de prueba para un test y si encuentra un fallo, genera el caso mínimo de test (para encontrar casos complejos que causan fallos). Es una opción interesante pero esta pensado para realizar testing a proyectos donde tengamos grandes cantidades de entradas para las funciones, lo que no es mi caso y además el rendimiento disminuye con respecto al estándar o `nextest`.
 
 
-### Maelstrom
-Maelstrom es un test runner de código abierto para `Rust`, `Go` o `Python` que encapsula pruebas en microcontenedores herméticos, ejecutándolos localmente o distribuyéndolos en clústeres. Queda descartado por ser poco conocido, bastante reciente y tener issues como [este](https://github.com/maelstrom-software/maelstrom/issues/13) abierto desde hace un año indicando que no cumple con muchos requisitos de seguridad.
-
-
 ### cargo-qtest
 Un test runner interactivo que mejora la experiencia de pruebas en Rust al permitir selección flexible y ejecución de pruebas con patrones personalizados. Es una pequeña mejora a `cargo test` añadiendo como funcionalidad principal el permitir la ejecución de test de manera visual y flexible. Lo descarto por ser poco conocido, no añadir nada muy relevante al estandar pero si deuda técnica.
 
