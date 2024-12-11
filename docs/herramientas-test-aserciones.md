@@ -8,7 +8,7 @@ A la hora de elegir herramientas de testing debemos tener en cuenta el nivel de 
 
 Para elegir la libreria de aserciones voy a tener en cuenta principalmente dos cosas:
 
-- Que no aumente en gran medida la deuda técnica.
+- Preferiblemente que se evite añadir dependencias si las nativas son lo suficientemente buenas para nuestro proyecto.
 - Que permita mensajes de fallo personalizado o que por defecto sean lo suficientemente claros.
 
 La libreria de aserciones nativa de Rust junto con `matches!` (comprueba que dos expresiones coincidan), nos ofrece todo lo que pedimos permitiendo distintos tipos de aserciones y con la capacidad de elegir si una aserción se debe comprobar en release o no, usando el prefijo `debug` antes de la expresión.
