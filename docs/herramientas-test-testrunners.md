@@ -8,9 +8,8 @@ A la hora de elegir herramientas de testing debemos tener en cuenta el nivel de 
 
 Para elegir nuestro test runner o framework debemos tener en cuenta los criterios ya nombrados en [#19](https://github.com/MarioRgzLpz/ArbitrageBets/issues/19) y algunas adicionales como son:
 
-- Buen mockeo: que permita simular objetos y posibles casos a testear.
-- Capacidad de depuración: Opciones integradas para pausar y analizar el estado del programa durante la ejecución de tests.
-- Rendimiento de los tests: Que permita paralelismo o concurrencia.
+- Que permita paralelismo o concurrencia.
+- Que permita aislar tests o conjuntos de tests.
 
 ### Estándar - cargo test
 
