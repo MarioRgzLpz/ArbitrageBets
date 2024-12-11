@@ -24,7 +24,7 @@ Nextest es una herramienta para reemplazar a `cargo test` (tiene las mismas func
 
 ### Rstest
 
-Libreria externa diseñada principalmente para test fixtures. Ayuda a escribir pruebas más simples aprovechando el concepto de **fixtures**. Una fixture es algo que encapsula las dependencias de las pruebas, ayudando a reducir la repetición de código al manejar la creación de objetos comunes (por ejemplo, casas de apuestas, cuotas...) que se utilizan en varias pruebas. Descarto esta herramienta porque no supone una gran ventaja con respecto a las anteriores además de no cumpli pero si aumenta la complejidad del testing.
+Test framework diseñada principalmente para test fixtures. Ayuda a escribir pruebas más simples aprovechando el concepto de **fixtures**, donde podemos probar multiples casos para un mismo test usando [rstest] y [case], donde por cada `case` definido nos genera un test. Descarto esta herramienta porque no supone una gran ventaja con respecto a las anteriores, pero si aumenta la complejidad del testing.
 
 
 ### Proptest
