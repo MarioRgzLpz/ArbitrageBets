@@ -10,10 +10,7 @@ Para elegir nuestro test runner o framework debemos tener en cuenta los criterio
 
 - Buen mockeo: que permita simular objetos y posibles casos a testear.
 - Capacidad de depuración: Opciones integradas para pausar y analizar el estado del programa durante la ejecución de tests.
-- Agrupación de tests: Que permita organizar los tests en grupos y subgrupos lógicos.
-- Escalabilidad: Que se permita configurar escenarios más complejos si el proyecto crece.
 - Rendimiento de los tests: Que permita paralelismo o concurrencia.
-- Integración con el ecosistema Rust o directamente nativo para Rust.
 
 ### Estándar - cargo test
 
@@ -44,7 +41,7 @@ Un test runner interactivo que mejora la experiencia de pruebas en Rust al permi
 
 ## Elección de test runner
 
-Finalmente por la estructura y futuro del proyecto he decidido usar `nextest` que tiene una implementación muy sencilla y integración con el estándar, releases recientes y amplia las funciones que se pueden hacer con `cargo test` sin aumentar en gran medida la deuda técnica ni la dificultad y muy querido en la comunidad, además de las ventajas nombradas anteriormente.
+Finalmente por la estructura y futuro del proyecto he decidido usar `nextest` que tiene una implementación muy sencilla y integración con `cargo test`, releases recientes y amplia las funciones que se pueden hacer con `cargo test` sin aumentar en gran medida la deuda técnica ni la dificultad y muy querido en la comunidad, además de las ventajas nombradas anteriormente.
 
 ## Herramientas CLI
 
