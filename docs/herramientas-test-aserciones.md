@@ -15,9 +15,13 @@ La libreria de aserciones nativa de Rust junto con `matches!` (comprueba que dos
 
 También podemos encontrar algunas macros en la libreria estandar(previamente era un crate) que amplian aserciones como `assert_matches!(valor,patron)` que verifica si una expresion coincide con el patrón proporcionado. Es similar a usar `assert!(matches!(valor, patrón))` pero permite imprimir en depuración el valor que hizó que fallará. Tiene un [issue](https://github.com/rust-lang/rust/issues/82775) abierto en la que se explica que tiene un comportamiento inestable en algunos casos.
 
-Encontramos también librerias externas(crates) para aumentar los posibles casos de aserciones y dar mensajes más precisos sobre los posibles errores:
-- `static_assertions`: Permite tener aserciones en tiempo de compilación y parar la compilación si es que falla. Centrado en aserciones invariantes como pueden ser constantes y tipos. Se añade como una dependencia y añade distintas macros a assert como `const_assert!` que permite comprobar que una expresion constante sea verdadera. 
-- `assertor`: Es una libreria de aserciones Fluent que permite hacer las aserciones de los tests y los mensajes de error mas legíbles. Cuenta con poca comunidad y poco soporte (3 releases en 3 años).
+Encontramos también librerias externas (`crates`) para aumentar los posibles casos de aserciones y dar mensajes más precisos sobre los posibles errores:
+- [`static_assertions`](https://crates.io/crates/static_assertions): Permite tener aserciones en tiempo de compilación y parar la compilación si es que falla. Tiene poco soporte, con su última release de hace 5 años, además de ser un tipo de aserción demasiado específico y que se puede cubrir con las aserciones nativas.
+- [`assertor`](https://crates.io/crates/assertor): Crate que permite hacer las aserciones de los tests y los mensajes de error más legíbles. Cuenta con poca comunidad y poco soporte (3 releases en 3 años).
+- [`assertables`](https://crates.io/crates/assertables): Crate que al igual que la anterior plantea ciertas macros para hacer las aserciones más legíbles para el ser humano. Es muy reciente ya que solo tiene 3 meses.
+- [`assert2`](https://crates.io/crates/assert2): Añade dos macros bastante útiles pero que vamos a evitar puesto que con las nativas podemos hacer exactamente lo mismo aunque debamos pensar algo más.
+
+Encontramos muchos crates similares a `assertor` y `assertables` como `more_asserts`, `cool_asserts`, que tan solo pretenden hacer las aserciones más legibles y que vamos a evitar para no aumentar la deuda técnica.
 
 ### Elección de aserciones
 
