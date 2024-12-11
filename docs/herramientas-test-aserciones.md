@@ -11,7 +11,7 @@ Para elegir la libreria de aserciones voy a tener en cuenta principalmente dos c
 - Que no aumente en gran medida la deuda técnica.
 - Que permita mensajes de fallo personalizado o que por defecto sean lo suficientemente claros.
 
-En Rust encontramos tres tipos de aserciones estandar que a su vez se pueden comportar de dos formas distintas en función de si contienen el prefijo debug o no, útil para evitar que algunas aserciones se comprueben cuando se usa el modo realease. Las distintas aserciones son `assert!`, `assert_eq!`, `assert_ne!` y las versiones con debug. Estas permiten todo lo necesario para realizar aserciones en Rust tanto simples como complejas.
+La libreria de aserciones nativa de Rust junto con `matches!` (comprueba que dos expresiones coincidan), nos ofrece todo lo que pedimos permitiendo distintos tipos de aserciones y con la capacidad de elegir si una aserción se debe comprobar en release o no, usando el prefijo `debug` antes de la expresión.
 
 También podemos encontrar algunas macros en la libreria estandar(previamente era un crate) que amplian aserciones como `assert_matches!(valor,patron)` que verifica si una expresion coincide con el patrón proporcionado. Es similar a usar `assert!(matches!(valor, patrón))` pero permite imprimir en depuración el valor que hizó que fallará. Tiene un [issue](https://github.com/rust-lang/rust/issues/82775) abierto en la que se explica que tiene un comportamiento inestable en algunos casos.
 
