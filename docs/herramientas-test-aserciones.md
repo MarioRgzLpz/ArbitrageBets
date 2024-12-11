@@ -6,7 +6,10 @@ A la hora de elegir herramientas de testing debemos tener en cuenta el nivel de 
 
 ## Aserciones
 
-Para elegir la libreria de aserciones lo más importante será que tenga una buena integración con el ecosistema de Rust, que sea flexible 
+Para elegir la libreria de aserciones voy a tener en cuenta principalmente dos cosas:
+
+- Que no aumente en gran medida la deuda técnica.
+- Que permita mensajes de fallo personalizado o que por defecto sean lo suficientemente claros.
 
 En Rust encontramos tres tipos de aserciones estandar que a su vez se pueden comportar de dos formas distintas en función de si contienen el prefijo debug o no, útil para evitar que algunas aserciones se comprueben cuando se usa el modo realease. Las distintas aserciones son `assert!`, `assert_eq!`, `assert_ne!` y las versiones con debug. Estas permiten todo lo necesario para realizar aserciones en Rust tanto simples como complejas.
 
