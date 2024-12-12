@@ -8,6 +8,7 @@ pub struct ApuestaSegura {
 }
 
 impl ApuestaSegura {
+    const NUMERO_INVERSA: f64 = 1.0;
     pub fn new(evento: String, cuotas: HashMap<String, Cuota>) -> Self {
         ApuestaSegura { evento, cuotas }
     }
@@ -41,9 +42,9 @@ impl ApuestaSegura {
 
     fn es_apuesta_segura(mejores_cuotas: &HashMap<Resultados, (String, f64)>) -> bool {
         let valores_cuotas: Vec<f64> = mejores_cuotas.values().map(|(_, valor)| *valor).collect();
-        let inversas: Vec<f64> = valores_cuotas.iter().map(|valor| 1.0 / valor).collect();
+        let inversas: Vec<f64> = valores_cuotas.iter().map(|valor| Self::NUMERO_INVERSA / valor).collect();
         let suma_inversa: f64 = inversas.iter().sum();
-        suma_inversa < 1.0
+        suma_inversa < Self::NUMERO_INVERSA
     }
 
     pub fn calcular_apuestas_seguras(
