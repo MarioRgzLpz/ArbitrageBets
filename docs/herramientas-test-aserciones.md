@@ -23,7 +23,7 @@ Encontramos también librerias externas (`crates`) para aumentar los posibles ca
 
 Encontramos muchos crates similares a `assertor` y `assertables` como `more_asserts`, `cool_asserts`, que tan solo pretenden hacer las aserciones más legibles y que vamos a evitar para no aumentar la deuda técnica.
 
-### Elección de aserciones
+### Elección de biblioteca de aserciones
 
 Puesto que no vamos a hacer cosas tan complejas y el proyecto no va a ser tan grande no es necesario usar aserciones en tiempo de compilación, ni añadir deuda técnica solo por hacer más legible el testing por lo que para las aserciones elegimos las estandar que trae Rust y no usaremos `assert_matches!` para evitar problemas.
 
