@@ -1,6 +1,7 @@
 use crate::evento::Resultados;
+use serde::Deserialize;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct Cuota {
     resultado: Resultados,
     valor: f64,
