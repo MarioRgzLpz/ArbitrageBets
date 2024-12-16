@@ -93,7 +93,7 @@ mod tests {
         let mejores_cuotas = ApuestaSegura::obtener_mejores_cuotas("Real Madrid vs Barcelona", &casas_de_apuestas);
 
         assert_eq!(mejores_cuotas.len(), 3);
-        assert_eq!(mejores_cuotas[&Resultados::GanaLocal].1, 2.9);
+        assert_eq!(mejores_cuotas[&Resultados::GanaLocal].1, 3.0);
         assert_eq!(mejores_cuotas[&Resultados::Empate].1, 3.5);
         assert_eq!(mejores_cuotas[&Resultados::GanaVisitante].1, 3.2);
     }
@@ -116,5 +116,14 @@ mod tests {
         let resultado = ApuestaSegura::calcular_apuestas_seguras("Real Madrid vs Barcelona", casas_de_apuestas);
 
         assert!(resultado.is_some());
+    }
+
+    #[test]
+    fn test_calcular_apuestas_seguras_sin_apuesta_segura() {
+        let casas_de_apuestas = ApuestaSegura::leer_json("data/test_2.json");
+
+        let resultado = ApuestaSegura::calcular_apuestas_seguras("Real Madrid vs Barcelona", casas_de_apuestas);
+
+        assert!(resultado.is_none());
     }
 }
