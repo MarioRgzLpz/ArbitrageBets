@@ -1,0 +1,27 @@
+[
+  {
+      "nombre": "Bet365",
+      "cuotas": {
+          "Real Madrid vs Barcelona": [
+              { "resultado": "GanaLocal", "valor": 2.9 },
+              { "resultado": "Empate", "valor": 2.5 },
+              { "resultado": "GanaVisitante", "valor": 2.2 }
+          ],
+          "Valencia vs Sevilla": [
+              { "resultado": "GanaLocal", "valor": 2.1 },
+              { "resultado": "Empate", "valor": 3.4 },
+              { "resultado": "GanaVisitante", "valor": 3.9 }
+          ]
+      }
+  },
+  {
+      "nombre": "Betfair",
+      "cuotas": {
+          "Real Madrid vs Barcelona": [
+              { "resultado": "GanaLocal", "valor": 2.0 },
+              { "resultado": "Empate", "valor": 2.4 },
+              { "resultado": "GanaVisitante", "valor": 3.1 }
+          ]
+      }
+  }
+]
