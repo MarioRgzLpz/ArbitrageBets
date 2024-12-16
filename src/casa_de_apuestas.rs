@@ -1,7 +1,9 @@
-use crate::cuota::Cuota;
+use crate::{cuota::Cuota, evento::Resultados};
 use std::collections::HashMap;
+use serde::Deserialize;
 
 /// La clave de `cuotas` es un String representando el nombre del evento y el String de `nombre` representa el nombre de la casa de apuestas
+#[derive(Deserialize)]
 pub struct CasaDeApuestas {
     nombre: String,
     cuotas: HashMap<String, Vec<Cuota>>,
