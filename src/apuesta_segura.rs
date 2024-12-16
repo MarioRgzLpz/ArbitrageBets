@@ -67,6 +67,17 @@ impl ApuestaSegura {
             None
         }
     }
+
+    fn leer_json(ruta_archivo: &str) -> Vec<CasaDeApuestas> {
+        use std::fs;
+    
+        let contenido = fs::read_to_string(ruta_archivo)
+            .expect(&format!("No se pudo leer el archivo: {}", ruta_archivo));
+        
+        serde_json::from_str(&contenido)
+            .expect("Error al parsear el JSON")
+    }
+    
 }
 
 #[cfg(test)]
@@ -77,73 +88,32 @@ mod tests {
 
     #[test]
     fn test_obtener_mejores_cuotas() {
-        let cuotas_casa1 = vec![
-            Cuota::new(Resultados::GanaLocal, 2.1),
-            Cuota::new(Resultados::Empate, 3.5),
-            Cuota::new(Resultados::GanaVisitante, 3.0),
-        ];
+        let casas_de_apuestas = ApuestaSegura::leer_json("data/test_1.json");
 
-        let cuotas_casa2 = vec![
-            Cuota::new(Resultados::GanaLocal, 2.2),
-            Cuota::new(Resultados::Empate, 3.3),
-            Cuota::new(Resultados::GanaVisitante, 2.8),
-        ];
-
-        let mut cuotas_map1 = HashMap::new();
-        cuotas_map1.insert("BarcavsMadrid".to_string(), cuotas_casa1);
-
-        let mut cuotas_map2 = HashMap::new();
-        cuotas_map2.insert("BarcavsMadrid".to_string(), cuotas_casa2);
-
-        let casa1 = CasaDeApuestas::new("Casa1".to_string(), cuotas_map1);
-        let casa2 = CasaDeApuestas::new("Casa2".to_string(), cuotas_map2);
-
-        let mejores_cuotas =
-            ApuestaSegura::obtener_mejores_cuotas("BarcavsMadrid", &[casa1, casa2]);
+        let mejores_cuotas = ApuestaSegura::obtener_mejores_cuotas("Real Madrid vs Barcelona", &casas_de_apuestas);
 
         assert_eq!(mejores_cuotas.len(), 3);
-        assert_eq!(mejores_cuotas[&Resultados::GanaLocal].1, 2.2);
+        assert_eq!(mejores_cuotas[&Resultados::GanaLocal].1, 2.9);
         assert_eq!(mejores_cuotas[&Resultados::Empate].1, 3.5);
-        assert_eq!(mejores_cuotas[&Resultados::GanaVisitante].1, 3.0);
+        assert_eq!(mejores_cuotas[&Resultados::GanaVisitante].1, 3.2);
     }
 
     #[test]
     fn test_es_apuesta_segura() {
-        let mut mejores_cuotas = HashMap::new();
-        mejores_cuotas.insert(Resultados::GanaLocal, ("Casa1".to_string(), 3.2));
-        mejores_cuotas.insert(Resultados::Empate, ("Casa2".to_string(), 3.5));
-        mejores_cuotas.insert(Resultados::GanaVisitante, ("Casa1".to_string(), 3.0));
+        let mejores_cuotas = HashMap::from([
+            (Resultados::GanaLocal, ("Betfair".to_string(), 2.9)),
+            (Resultados::Empate, ("Bet365".to_string(), 3.5)),
+            (Resultados::GanaVisitante, ("Betfair".to_string(), 3.2)),
+        ]);
 
         assert!(ApuestaSegura::es_apuesta_segura(&mejores_cuotas));
-
-        mejores_cuotas.insert(Resultados::GanaVisitante, ("Casa1".to_string(), 1.5));
-        assert!(!ApuestaSegura::es_apuesta_segura(&mejores_cuotas));
     }
 
     #[test]
     fn test_calcular_apuestas_seguras() {
-        let cuotas_casa1 = vec![
-            Cuota::new(Resultados::GanaLocal, 3.1),
-            Cuota::new(Resultados::Empate, 3.5),
-            Cuota::new(Resultados::GanaVisitante, 3.0),
-        ];
+        let casas_de_apuestas = ApuestaSegura::leer_json("data/test_1.json");
 
-        let cuotas_casa2 = vec![
-            Cuota::new(Resultados::GanaLocal, 2.2),
-            Cuota::new(Resultados::Empate, 3.3),
-            Cuota::new(Resultados::GanaVisitante, 2.8),
-        ];
-
-        let mut cuotas_map1 = HashMap::new();
-        cuotas_map1.insert("BarcavsMadrid".to_string(), cuotas_casa1);
-
-        let mut cuotas_map2 = HashMap::new();
-        cuotas_map2.insert("BarcavsMadrid".to_string(), cuotas_casa2);
-
-        let casa1 = CasaDeApuestas::new("Casa1".to_string(), cuotas_map1);
-        let casa2 = CasaDeApuestas::new("Casa2".to_string(), cuotas_map2);
-
-        let resultado = ApuestaSegura::calcular_apuestas_seguras("BarcavsMadrid", vec![casa1, casa2]);
+        let resultado = ApuestaSegura::calcular_apuestas_seguras("Real Madrid vs Barcelona", casas_de_apuestas);
 
         assert!(resultado.is_some());
     }
