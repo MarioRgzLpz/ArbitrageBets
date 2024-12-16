@@ -18,32 +18,43 @@ impl ApuestaSegura {
     ) -> HashMap<Resultados, (String, f64)> {
         let mut mejores_cuotas: HashMap<Resultados, (String, f64)> = HashMap::new();
 
-        for casa in casas {
-            if let Some(cuotas_evento) = casa.get_cuotas().get(evento) {
-                for cuota in cuotas_evento {
-                    let resultado = cuota.get_resultado();
-                    let valor = cuota.get_valor();
+        casas.iter()
+        .filter_map(|casa| {
+            casa.get_cuotas().get(evento).map(|cuotas| (casa, cuotas))
+        })
+        .for_each(|(casa, cuotas_evento)| {
+            cuotas_evento.iter().for_each(|cuota| {
+                let resultado = cuota.get_resultado().clone();
+                let valor = cuota.get_valor();
+                let nombre_casa = casa.get_nombre().clone();
 
-                    if let Some((_, mejor_valor)) = mejores_cuotas.get(resultado) {
+                mejores_cuotas
+                    .entry(resultado)
+                    .and_modify(|(_, mejor_valor)| {
                         if valor > *mejor_valor {
-                            mejores_cuotas
-                                .insert(resultado.clone(), (casa.get_nombre().clone(), valor));
+                            *mejor_valor = valor;
                         }
-                    } else {
-                        mejores_cuotas
-                            .insert(resultado.clone(), (casa.get_nombre().clone(), valor));
-                    }
-                }
-            }
-        }
+                    })
+                    .or_insert((nombre_casa, valor));
+            });
+        });
 
         mejores_cuotas
     }
 
     fn es_apuesta_segura(mejores_cuotas: &HashMap<Resultados, (String, f64)>) -> bool {
-        let valores_cuotas: Vec<f64> = mejores_cuotas.values().map(|(_, valor)| *valor).collect();
-        let inversas: Vec<f64> = valores_cuotas.iter().map(|valor| Self::NUMERO_INVERSA / valor).collect();
+        let valores_cuotas: Vec<f64> = mejores_cuotas
+            .values()
+            .map(|(_, valor)| *valor)
+            .collect();
+    
+        let inversas: Vec<f64> = valores_cuotas
+            .iter()
+            .map(|valor| Self::NUMERO_INVERSA / valor)
+            .collect();
+    
         let suma_inversa: f64 = inversas.iter().sum();
+    
         suma_inversa < Self::NUMERO_INVERSA
     }
 
@@ -51,17 +62,17 @@ impl ApuestaSegura {
         evento: &str,
         casas: Vec<CasaDeApuestas>,
     ) -> Option<ApuestaSegura> {
-
         let mejores_cuotas = Self::obtener_mejores_cuotas(evento, &casas);
-
+    
         if Self::es_apuesta_segura(&mejores_cuotas) {
             let cuotas: HashMap<String, Cuota> = mejores_cuotas
                 .into_iter()
                 .map(|(resultado, (casa, valor))| {
-                    (casa.clone(), Cuota::new(resultado.clone(), valor))
+                    let cuota = Cuota::new(resultado.clone(), valor);
+                    (casa.clone(), cuota)
                 })
                 .collect();
-
+    
             Some(ApuestaSegura::new(evento.to_string(), cuotas))
         } else {
             None
