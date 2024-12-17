@@ -13,7 +13,7 @@ args = ["clean"]
 
 [tasks.test]
 command = "cargo"
-args = ["test"]
+args = ["nextest", "run"]
 
 [tasks.build]
 command = "cargo"
