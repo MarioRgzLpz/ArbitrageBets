@@ -22,7 +22,6 @@ Realizar una aplicación que obtenga apuestas seguras de distintas casas de apue
 
 - [Milestones](docs/milestones.md)
 
-
 # Herramientas utilizadas
 
 - Lenguaje de programación: `Rust`
@@ -38,3 +37,8 @@ Realizar una aplicación que obtenga apuestas seguras de distintas casas de apue
     - Para compilar el proyecto realizamos: `cargo make build`
     - Con `cargo make full` corregimos sintaxis, compilamos y corremos tests.
     - Con `cargo make clean-full` realizamos todo lo anterior pero primero limpiamos los archivos de compilación.
+
+- [Aserciones](docs/herramientas-test-aserciones.md) de Rust y [test-runner](docs/herramientas-test-testrunners.md): 
+    - Para instalar el test runner simplemente usamos el siguiente comando:
+    `cargo install cargo-nextest --locked`
+    - Para usar nuestro test runner simplemente hacemos: `cargo nextest run`

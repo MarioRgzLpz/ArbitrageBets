@@ -1,11 +1,13 @@
-#[derive(Debug, Eq, PartialEq, Hash)]
+use serde::Deserialize;
+
+#[derive(Debug, Eq, PartialEq, Hash, Clone, Deserialize)]
 pub enum Resultados {
     GanaLocal,
     Empate,
     GanaVisitante,
 }
 
-#[derive(Debug, Eq, PartialEq, Hash)]
+#[derive(Debug, Eq, PartialEq, Hash, Deserialize)]
 pub struct EventoDeportivo {
     nombre: String,
     resultados: Vec<Resultados>,
