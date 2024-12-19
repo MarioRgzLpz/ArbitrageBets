@@ -50,7 +50,7 @@ Realizar una aplicación que obtenga apuestas seguras de distintas casas de apue
 Se puede construir una imagen del contenedor y ejecutarla con
 
 ```bash
-docker build -t mariorgzlpz/arbitragebets . && docker run -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
+docker build -t mariorgzlpz/arbitragebets . && docker run -u 1001 -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
 ```
 
 También, podemos usar la imagen que está en [DockerHub](https://hub.docker.com/r/mariorgzlpz/arbitragebets)
