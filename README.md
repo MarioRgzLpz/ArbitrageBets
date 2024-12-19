@@ -42,3 +42,19 @@ Realizar una aplicación que obtenga apuestas seguras de distintas casas de apue
     - Para instalar el test runner simplemente usamos el siguiente comando:
     `cargo install cargo-nextest --locked`
     - Para usar nuestro test runner simplemente hacemos: `cargo nextest run`
+
+- [Imagen Docker](docs/imagen-docker.md)
+    
+## Contenedor de pruebas
+
+Se puede construir una imagen del contenedor y ejecutarla con
+
+```bash
+docker build -t mariorgzlpz/arbitragebets . && docker run -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
+```
+
+También, podemos usar la imagen que está en [DockerHub](https://hub.docker.com/r/mariorgzlpz/arbitragebets)
+
+```bash
+docker run -t -v `pwd`:/app/test mariorgzlpz/arbitragebets:latest
+```
