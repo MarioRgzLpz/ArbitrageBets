@@ -1,6 +1,6 @@
 FROM rust:slim
 
-LABEL maintainer="mariorgzlpz@correo.ugr.es" version="0.0.5"
+LABEL maintainer="mariorgzlpz@correo.ugr.es" version="0.0.2"
 
 WORKDIR /app/test
 
