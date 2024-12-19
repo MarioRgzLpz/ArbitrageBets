@@ -1,21 +1,24 @@
 FROM rust:slim
 
-LABEL maintainer="mariorgzlpz@correo.ugr.es" version="0.0.3"
+LABEL maintainer="mariorgzlpz@correo.ugr.es" version="0.0.5"
 
 WORKDIR /app/test
 
-RUN adduser --disabled-login --uid 1001 test && chown -R test:test /app/test
+COPY Cargo.toml Makefile.toml /app/
+
+RUN adduser test \
+    && chown -R test:test /app/
 
 USER test
 
-COPY Cargo.toml Makefile.toml ./
-
-COPY src/ ./src/ 
-
-COPY data/ ./data/
+RUN mkdir -p /app/src \
+	&& touch /app/src/lib.rs \
+	&& cargo update \
+	&& rm -rf /app/src \
+	&& ln -s /app/test/src /app/src 
 
 RUN cargo install cargo-make cargo-nextest
 
-RUN cargo build --release
+ENV CARGO_TARGET_DIR=/tmp/cache/
 
-CMD ["cargo", "make", "test"]
+ENTRYPOINT [ "cargo", "make", "test" ]
