@@ -5,8 +5,6 @@ on:
     paths:
       - 'Cargo.toml'
       - 'Makefile.toml'
-      - 'src/**'
-      - 'data/**'
       - 'Dockerfile'
 
 jobs:
