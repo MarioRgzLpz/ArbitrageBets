@@ -7,8 +7,6 @@ Como bien se indica en el guion y [aquí](https://github.com/MarioRgzLpz/Arbitra
 Para la elección de la imagen vamos a seguir los siguientes criterios:
 
 - Tamaño reducido de la imagen.
-- Que este actualizada y se actualice con frecuencia.
-- Preferiblemente oficial o de un publisher verificado.
 - Que tenga Rust instalado por defecto.
 
 ## Posibles imágenes
@@ -17,7 +15,7 @@ Como requisito indispensable es que traiga Rust instalado por defecto por lo que
 
 ### [Debian Rust](https://hub.docker.com/_/debian)
 
-Encontramos `Debian` con `Rust` con sus dos variantes `bookworm` y `bullseye`. Esta es la imagen por defecto al descargar una imagen de rust. Ambas imagenes traen gran cantidad de dependencias por defecto y son bastante pesadas, por lo que descartamos su uso.
+Encontramos `Debian` con `Rust` con sus dos variantes `bookworm` y `bullseye`. Esta es la imagen por defecto al descargar una imagen de rust. Ambas imagenes traen gran cantidad de dependencias por defecto, que yo no voy a utilizar, y son bastante pesadas, por lo que descartamos su uso.
 
 ### [Slim Rust](https://hub.docker.com/_/debian)
 
@@ -29,7 +27,7 @@ Imagen muy ligera aunque algo más pesada que Slim (~50MB). Trae muy pocas depen
 
 ### [Bitnami Rust](https://hub.docker.com/r/bitnami/rust)
 
-Imagen basada en `Debian` bastante más pesada que las anteriores. Se mantiene actualizada y trae Rust por defecto con un conjunto de dependencias. Por su tamaño, la descartamos.
+Imagen basada en `Debian` bastante más pesada que las anteriores. Se mantiene actualizada y trae Rust por defecto con un conjunto de dependencias. Por la misma razón que la de debian, la descartamos.
 
 ## Elección de imagen
 
