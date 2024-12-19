@@ -8,7 +8,7 @@ RUN adduser --disabled-login --uid 1001 test && chown -R test:test /app/test
 
 USER test
 
-COPY Cargo.toml Cargo.lock Makefile.toml ./
+COPY Cargo.toml Makefile.toml ./
 
 COPY src/ ./src/ 
 
