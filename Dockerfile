@@ -15,9 +15,8 @@ RUN mkdir -p /app/src \
 	&& touch /app/src/lib.rs \
 	&& cargo update \
 	&& rm -rf /app/src \
-	&& ln -s /app/test/src /app/src 
-
-RUN cargo install cargo-make cargo-nextest
+	&& ln -s /app/test/src /app/src \
+	&& cargo install cargo-make cargo-nextest
 
 ENV CARGO_TARGET_DIR=/tmp/cache/
 
