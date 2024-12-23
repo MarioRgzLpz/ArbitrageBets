@@ -2,7 +2,12 @@ FROM rust:slim AS build
 
 RUN cargo install cargo-make cargo-nextest
 
-FROM rust:slim
+COPY . .
+
+RUN cargo make clean \
+    && cargo make test
+
+FROM debian:bookworm-slim
 
 LABEL maintainer="mariorgzlpz@correo.ugr.es" version="0.0.5"
 
@@ -13,9 +18,10 @@ RUN adduser test \
 
 USER test
 
-COPY --from=build /usr/local/cargo/bin/cargo-make /usr/local/bin/cargo-make
-COPY --from=build /usr/local/cargo/bin/cargo-nextest /usr/local/bin/cargo-nextest
+COPY --from=build /target/debug/deps/arbitrage_bets* /app/
+
+RUN find /app/ -type f -executable -name 'arbitrage_bets-*' ! -name '*.d' -exec mv {} /app/arbitrage_bets \;
 
 ENV CARGO_TARGET_DIR=/tmp/cache/
 
-ENTRYPOINT [ "cargo", "make", "test" ]
+ENTRYPOINT [ "/app/arbitrage_bets" ]
