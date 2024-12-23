@@ -31,4 +31,8 @@ Imagen basada en `Debian` bastante más pesada que las anteriores. Se mantiene a
 
 ## Elección de imagen
 
-Comparando los tamaños y viendo lo que yo necesito en mi proyecto, he decidido usar rust:slim, que me permite realizar lo que yo quiero con el menor tamaño posible, evitando instalar dependencias adicionales como implicaría, por ejemplo, el uso de alpine.
+Comparando los tamaños y viendo lo que yo necesito en mi proyecto, he decidido usar rust:slim, que me permite realizar lo que yo quiero con el menor tamaño posible, evitando instalar dependencias adicionales como implicaría, por ejemplo, el uso de alpine. Esto es debido a que alpine usa musl libc y para poder usar cargo make y cargo nextest necesito libc. 
+
+## Construcción en dos fases
+
+Como Rust ocupa mucho espacio he decidido compilar los tests en la imagen que he nombrado antes y después copiar el binario en una imagen con menor tamaño y las funcionalidades necesarias. Puesto que uso rust:slim, que usa debian, he optado por usar [debian:bookworm-slim](https://hub.docker.com/_/debian) en la segunda que tiene un tamaño bastante reducido y no me da problemas para ejecutar los binarios, ya que usando otras imágenes más pequeñas como alpine, faltan dependencias para ejecutar el binario.
