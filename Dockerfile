@@ -12,8 +12,7 @@ RUN adduser test
 
 USER test
 
-COPY --from=build /usr/local/cargo/bin/cargo-make /usr/local/bin/cargo-make
-COPY --from=build /usr/local/cargo/bin/cargo-nextest /usr/local/bin/cargo-nextest
+COPY --from=build /usr/local/cargo/bin/cargo-make /usr/local/cargo/bin/cargo-nextest /usr/local/bin/
 
 ENV CARGO_TARGET_DIR=/tmp/cache/
 
