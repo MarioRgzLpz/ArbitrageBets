@@ -35,4 +35,4 @@ Comparando los tamaños y viendo lo que yo necesito en mi proyecto, he decidido 
 
 ## Construcción en dos fases
 
-Como Rust ocupa mucho espacio he decidido compilar los tests en la imagen que he nombrado antes y después copiar el binario en una imagen con menor tamaño y las funcionalidades necesarias. Puesto que uso rust:slim, que usa debian, he optado por usar [debian:bookworm-slim](https://hub.docker.com/_/debian) en la segunda que tiene un tamaño bastante reducido y no me da problemas para ejecutar los binarios, ya que usando otras imágenes más pequeñas como alpine, faltan dependencias para ejecutar el binario.
+Como instalar cargo make y cargo nextest ocupa mucho espacio, para reducir esto he decidido usar una construcción en dos fases. En la primera fase añado las herramientas que necesito y ya en la segunda copio los binarios de las herramientas para poder ejecutar cargo make test. Es necesario en ambos casos tener rust instalado porque para poder hacer uso de cargo nextest, es necesario tener cargo y rust instalado.
