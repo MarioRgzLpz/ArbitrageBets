@@ -1,10 +1,10 @@
 lenguaje: rust
 entidad: src/casa_de_apuestas.rs
-automatizar: 
+automatizar:
     fichero: Makefile.toml
     orden: cargo make
 test: src/casa_de_apuestas.rs
-CI: 
+CI:
     -.github/workflows/github_rust_ci.yml
     -.appveyor.yml
     -.gitlab-ci.yml
