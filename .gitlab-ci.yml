@@ -3,7 +3,12 @@ stages:
 
 test:
   stage: test
-  image: rust:latest
+  parallel:
+    matrix:
+      - RUST_VERSION: "1.81.0"
+      - RUST_VERSION: "1.82.0"
+      - RUST_VERSION: "1.83.0"
+  image: rust:${RUST_VERSION}
   script:
     - cargo install cargo-make cargo-nextest
     - cargo make test
