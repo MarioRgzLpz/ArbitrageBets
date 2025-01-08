@@ -2,4 +2,4 @@ image: Ubuntu
 
 build_script:
   - docker pull mariorgzlpz/arbitragebets
-  - docker run -u 1001 -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
+  - docker run -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
