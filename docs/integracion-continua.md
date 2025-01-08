@@ -13,7 +13,7 @@ Como bien hemos hablado [aquí]() para el correcto desarrollo de software es nec
 Es de codigo abierto, tiene gran cantidad de plugins que permite la integración con Github, además de que es compatible con Docker. Existen soluciones modernas para realizar lo mismo sin tener que instalarlo de manera local, por lo que queda descartado por esta razón.
 
 ### [CircleCI](https://circleci.com/):
-Proporciona un plan gratuito con limitaciones (máximo de 6000 minutos). Ofrece una integración con GitHub Checks y tiene soporte nativo para Docker, permitiendo la ejecución de construcciones en contenedores. Lo descartamos puesto que sus limitaciones no lo hacen gratuito del todo.
+Proporciona un plan gratuito con limitaciones (máximo de 6000 minutos). Ofrece una integración con GitHub Checks y tiene soporte nativo para Docker, permitiendo la ejecución de construcciones en contenedores.
 
 ### [AppVeyor](https://www.appveyor.com/):
 AppVeyor es una opción que nos permite integrar CI en proyectos de manera gratuita si es open source, como es nuestro caso. Además, se puede integrar fácilmente con Github.
@@ -29,4 +29,4 @@ Compatible con Docker y Github. Aunque hay que tener en cuenta que es de pago, t
 
 
 ## Decisión
-Como podemos ver hay muchas opciones que podemos considerar válidas pero, he decidido usar GithubActions, GitLab y AppVeyor por ser todos gratis, además de no requerir instalación en local y la facilidad que tienen de integración con Github.
+Como podemos ver hay muchas opciones que podemos considerar válidas pero, he decidido usar GithubActions y AppVeyor por ser ambos gratis, además de no requerir instalación en local y la facilidad que tienen de integración con Github. También he añadido Circle-Ci por que lo sugiere el guión.
