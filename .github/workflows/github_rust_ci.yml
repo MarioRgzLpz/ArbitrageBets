@@ -10,9 +10,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Setup Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
-      - name: Install cargo-make and cargo-nextest
-        run: cargo install cargo-make cargo-nextest
-      - name: Run tests
-        run: cargo make test
+      - name: Install cargo-make
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: --debug cargo-make
+      - name: Install cargo-nextest
+        uses: baptiste0928/cargo-install@v1
+        with:
+          crate: cargo-nextest
+          args: --locked 
+      - name: Run Tests
+        uses: actions-rs/cargo@v1
+        with:
+          command: make
+          args: test   
