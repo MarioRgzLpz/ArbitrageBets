@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout
+      - run:
+          name: Ejecuta tests
+          command: docker run -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
+
+workflows:
+  version: 2
+  test-workflow:
+    jobs:
+      - test
