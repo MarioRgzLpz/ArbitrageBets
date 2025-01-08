@@ -3,12 +3,12 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: docker:latest
+      - image: mariorgzlpz/arbitragebets
     steps:
       - checkout
       - run:
           name: Ejecuta tests
-          command: docker run -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
+          command: cargo make test
 
 workflows:
   version: 2
