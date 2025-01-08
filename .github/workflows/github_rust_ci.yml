@@ -11,18 +11,14 @@ jobs:
       matrix:
         rust: ["1.81.0", "1.82.0", "1.83.0"]
     steps:
-      - name: Set up Rust ${{ matrix.rust }}
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: ${{ matrix.rust }}
-          override: true
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install cargo-make
-        uses: baptiste0928/cargo-install@v1
+      - name: Set up Rust ${{ matrix.rust }}
+        uses: dtolnay/rust-toolchain@stable
         with:
-          crate: make
-          args: --locked
+          toolchain: ${{ matrix.rust }}
+      - name: Install cargo-make
+        uses: davidB/rust-cargo-make@v1
       - name: Install cargo-nextest
         uses: baptiste0928/cargo-install@v1
         with:
