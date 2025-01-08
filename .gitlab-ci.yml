@@ -1,7 +1,9 @@
 stages:
   - test
 
-build:
-  image: mariorgzlpz/arbitragebets
+test:
+  stage: test
+  image: rust:latest
   script:
+    - cargo install cargo-make cargo-nextest
     - cargo make test
