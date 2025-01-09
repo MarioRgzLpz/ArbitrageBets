@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        rust: ["1.81.0", "1.82.0", "1.83.0"]
+        rust: ["1.82.0", "1.83.0"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
