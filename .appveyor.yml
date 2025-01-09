@@ -1,4 +1,4 @@
 image: Ubuntu
 
 build_script:
-  - docker run -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
+  - docker run -u 1001 -t -v `pwd`:/app/test mariorgzlpz/arbitragebets
