@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Crear directorio nextest/default si no existe
+          command: |
+            mkdir -p /home/circleci/target/nextest/default
+      - run:
           name: Establecer ruta para nextest
           command: |
             sed -i 's|dir =.*|dir = "/home/circleci/target/nextest"|' .config/nextest.toml
