@@ -27,3 +27,4 @@ Compatible con Docker y Github. Aunque hay que tener en cuenta que es de pago, t
 
 ## Decisión
 Como podemos ver hay muchas opciones que podemos considerar válidas pero, he decidido usar GithubActions y AppVeyor por ser ambos gratis, además de no requerir instalación en local y la facilidad que tienen de integración con Github. También he añadido Circle-Ci por que lo sugiere el guión.
+Para GithubActions he decidido probar las últimas 3 versiones de Rust porque según el [repòsitorio de nextest](https://github.com/nextest-rs/nextest), son para las cuales la construcción de los tests esta soportada y como cargo nextest run hace un build de los tests esto es necesario.
