@@ -6,12 +6,8 @@ Como bien hemos hablado [aquí](https://github.com/MarioRgzLpz/ArbitrageBets/iss
 - Que permita trabajar con Docker.
 - Que permita trabajar con Rust.
 - Que se pueda conectar con Github Checks API, necesario para poder integrarla con Github.
-- Que no requiera instalación local.
 
 ## Selección de herramientas
-
-### [Jenkins](https://www.jenkins.io): 
-Es de codigo abierto, tiene gran cantidad de plugins que permite la integración con Github, además de que es compatible con Docker. Existen soluciones modernas para realizar lo mismo sin tener que instalarlo de manera local, por lo que queda descartado por esta razón.
 
 ### [CircleCI](https://circleci.com/):
 Proporciona un plan gratuito con limitaciones (máximo de 6000 minutos). Ofrece una integración con GitHub Checks y tiene soporte nativo para Docker, permitiendo la ejecución de construcciones en contenedores.
