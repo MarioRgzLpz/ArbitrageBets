@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: mariorgzlpz/arbitragebets
+    steps:
+      - checkout
+      - run:
+          name: Establecer ruta para nextest
+          command: |
+            sed -i 's|dir =.*|dir = "/tmp/nextest"|' .config/nextest.toml
+      - run:
+          name: Ejecuta tests
+          command: cargo make test
+
+workflows:
+  version: 2
+  test-workflow:
+    jobs:
+      - test

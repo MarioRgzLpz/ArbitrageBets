@@ -1,0 +1,31 @@
+name: "Test Rust Project"
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: run tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rust: ["1.82.0", "1.83.0"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Rust ${{ matrix.rust }}
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ matrix.rust }}
+      - name: Install cargo-make
+        uses: davidB/rust-cargo-make@v1
+      - name: Install cargo-nextest
+        uses: baptiste0928/cargo-install@v1
+        with:
+          crate: cargo-nextest
+          args: --locked 
+      - name: Run Tests
+        uses: actions-rs/cargo@v1
+        with:
+          command: make
+          args: test   
