@@ -1,4 +1,4 @@
-Como bien hemos hablado [aquí]() para el correcto desarrollo de software es necesario emplear integración continua, por lo que debemos elegir alguna herramienta que nos ayude con esta tarea.
+Como bien hemos hablado [aquí](https://github.com/MarioRgzLpz/ArbitrageBets/issues/36) para el correcto desarrollo de software es necesario emplear integración continua, por lo que debemos elegir alguna herramienta que nos ayude con esta tarea.
 
 ## Criterios a cumplir por la herramienta
 
@@ -6,6 +6,7 @@ Como bien hemos hablado [aquí]() para el correcto desarrollo de software es nec
 - Que permita trabajar con Docker.
 - Que permita trabajar con Rust.
 - Que se pueda conectar con Github Checks API, necesario para poder integrarla con Github.
+- Que no requiera instalación local.
 
 ## Selección de herramientas
 
