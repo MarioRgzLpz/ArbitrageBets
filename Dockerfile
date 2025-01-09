@@ -9,7 +9,7 @@ LABEL maintainer="mariorgzlpz@correo.ugr.es" version="0.0.5"
 WORKDIR /app/test
 
 RUN adduser test \
-    && chown -R test /app/test
+    && chown -R test:test /app/test 
 
 USER test
 
